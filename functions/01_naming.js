@@ -16,7 +16,7 @@ export function namedFunctions() {
   
   // No podemos hacer esto debido a que la propiedad name es de solo lectura, pero intentarlo no provocará error
 
-  // normalFunction.name = "hackedName";
+  //normalFunction.name = "hackedName";
 
  /*
   Function declarada de forma anónima debe ser
@@ -32,7 +32,8 @@ export function namedFunctions() {
 //  Escrita como "expresión" no provoca error
 //  Analizaremos luego que son las expresiones
 
-  (function () {})
+  //console.log("Name", (function () {}).name)
+  
 
   // La función "anónima" en la propiedad 'name' asignará el nombre de la variable.
   
@@ -41,12 +42,20 @@ export function namedFunctions() {
   //  anonymous()
   
   var anonymous = function () {}
+  //console.log("Name",anonymous.name);
+  
+  var myService = {
+    "getData" : function myName () {},
+  }
+
+  console.log("name", myService.getData.name);
+  
 
   return {
     normalFunction: normalFunction,
-    anonymousFunction: anonymous,
+    //anonymousFunction: anonymous,
     // lo anterior es igual a esto por eso pasa la prueba
-    // anonymousFunction: function () {}
+    anonymousFunction: function () {}
   }
 }
 
@@ -63,7 +72,7 @@ export function expressionFunctions() {
   // las expresiones siempre se evalúan
   //(nonExistsVariable)
   // pero no los valores de retorno
-  //(function() { return nonExistsVarible })
+  //(function() { return nonExistsVariable })
 
   // para que falle este código podriamos por ejemplo ...
   // var wrongFunction = (function() { return nonExistsVarible })
@@ -94,6 +103,6 @@ export function expressionFunctions() {
   */
 
   // return function(){}
-  return function named(){}
+  return function(){}
 }
 
